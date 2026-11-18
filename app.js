@@ -1,4 +1,4 @@
-const API = 'https://YOUR-BACKEND.onrender.com';
+const API = 'https://syntaip-production.up.railway.app';
 const statusEl = document.getElementById('status');
 const token = new URLSearchParams(location.search).get('t');
 function show(message, type=''){statusEl.textContent=message;statusEl.className='status '+type;}
