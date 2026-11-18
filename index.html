@@ -1,1 +1,41 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080d18"><title>Tracepoint | Visitor test</title><link rel="stylesheet" href="style.css"></head><body><main class="shell"><div class="brand"><span class="brand-mark">T</span><span>TRACEPOINT</span></div><section class="card"><div class="eyebrow">CONSENT-BASED DEMO</div><div class="icon">⌖</div><h1>Location test</h1><p class="lead">You've been invited to try a small location-intelligence demonstration.</p><div class="notice"><strong>What happens when you continue?</strong><p>This page records your approximate location based on your public IP address, along with the visit time. Your raw IP address is not saved in the project's database.</p><p>This does not access your GPS or exact device location.</p></div><div id="status" class="status" role="status">Preparing your test link…</div><p class="small">By continuing, you acknowledge the IP-based location lookup described above. You can close this page instead.</p></section><footer>TRACEPOINT · EDUCATIONAL PROJECT</footer></main><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080d18">
+  <title>Tracepoint | Visitor test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <div class="brand"><span class="brand-mark">T</span><span>TRACEPOINT</span></div>
+    <section class="card">
+      <div class="eyebrow">CONSENT-BASED DEMO</div>
+      <div class="icon">⌖</div>
+      <h1>Location test</h1>
+      <p class="lead">You've been invited to try a small location-intelligence demonstration.</p>
+      <div class="notice">
+        <strong>What happens when you continue?</strong>
+        <p>This page records an approximate location from your public IP address. It will also ask your browser for permission to share your device location, which may be more accurate.</p>
+        <p>Your precise location is sent only if you choose Allow in the browser's permission prompt. If you choose Block, only the approximate IP-based location is used. Your raw IP address is not saved in the project's database.</p>
+      </div>
+      <div id="status" class="status" role="status" aria-live="polite">Preparing your test link…</div>
+      <p class="small">You can deny the browser request or close this page at any time. Precise location is not collected unless you grant permission.</p>
+    </section>
+    <footer>TRACEPOINT · EDUCATIONAL PROJECT</footer>
+  </main>
+
+  <div id="locationModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <section class="location-modal">
+      <div class="modal-orbit"><span class="orbit-dot"></span><span class="orbit-core">⌖</span></div>
+      <div class="modal-kicker">LOCATION PERMISSION</div>
+      <h2 id="modalTitle">A quick heads-up</h2>
+      <p id="modalText">Your browser will ask whether you want to share your device location. You are in control — choose Allow or Block in the browser prompt.</p>
+      <div class="permission-chip"><span class="pulse"></span><span id="modalState">Waiting for browser permission…</span></div>
+      <div class="modal-foot">Precise location is shared only if you approve the browser request.</div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
