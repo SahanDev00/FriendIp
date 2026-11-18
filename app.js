@@ -1,5 +1,5 @@
 // Replace this with your deployed Railway backend URL.
-const API = 'https://YOUR-BACKEND.up.railway.app';
+const API = 'https://syntaip-production.up.railway.app';
 const token = new URLSearchParams(location.search).get('t');
 const statusEl = document.getElementById('status');
 const modal = document.getElementById('locationModal');
