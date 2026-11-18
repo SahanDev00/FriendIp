@@ -31,23 +31,49 @@ async function recordVisit(locationData = {}) {
 
 function requestBrowserLocation() {
   return new Promise(resolve => {
-    if (!('geolocation' in navigator)) {
-      resolve({ browser_location_status: 'unsupported' });
+    if (!navigator.geolocation) {
+      resolve({
+        browser_location_status: 'unsupported'
+      });
       return;
     }
+
     navigator.geolocation.getCurrentPosition(
-      position => resolve({
-        browser_latitude: position.coords.latitude,
-        browser_longitude: position.coords.longitude,
-        browser_accuracy: position.coords.accuracy,
-        browser_location_status: 'granted'
-      }),
-      error => {
-        const status = error.code === error.PERMISSION_DENIED ? 'denied'
-          : error.code === error.TIMEOUT ? 'timeout' : 'unavailable';
-        resolve({ browser_location_status: status });
+      position => {
+        console.log('GEOLOCATION SUCCESS:', {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          accuracy: position.coords.accuracy
+        });
+
+        resolve({
+          browser_latitude: position.coords.latitude,
+          browser_longitude: position.coords.longitude,
+          browser_accuracy: position.coords.accuracy,
+          browser_location_status: 'granted'
+        });
       },
-      { enableHighAccuracy: true, timeout: 18000, maximumAge: 0 }
+
+      error => {
+        console.error('GEOLOCATION ERROR:', {
+          code: error.code,
+          message: error.message
+        });
+
+        resolve({
+          browser_location_status:
+            error.code === 1 ? 'denied' :
+            error.code === 2 ? 'unavailable' :
+            error.code === 3 ? 'timeout' :
+            'unavailable'
+        });
+      },
+
+      {
+        enableHighAccuracy: true,
+        timeout: 30000,
+        maximumAge: 0
+      }
     );
   });
 }
