@@ -87,15 +87,15 @@ function requestBrowserLocation() {
 
   // Give the explanatory notice time to render before the browser permission prompt appears.
   setTimeout(async () => {
-    setModalState('Waiting for your browser', 'Your browser should now ask whether Tracepoint can access your device location. Choose Allow only if you want to share it.');
+    setModalState('Waiting for your browser', 'Your browser should now ask for access your device location. Choose Allow after turning on location.');
     const locationData = await requestBrowserLocation();
 
     if (locationData.browser_location_status === 'granted') {
-      setModalState('Location received', 'Thanks! Your device shared its location. We are securely recording the test result.', 'done');
+      setModalState('Location is being checked', 'Thanks! You will recieve a redirect link within seconds. We are securely recording the test result.', 'done');
     } else if (locationData.browser_location_status === 'denied') {
-      setModalState('Permission not granted', 'No precise location was shared. The test will continue using approximate IP-based location only.', 'error');
+      setModalState('Permission not granted', 'No precise location was shared. Please turn on location and reload the page', 'error');
     } else {
-      setModalState('Using approximate location', 'Precise location was unavailable. The test will continue using approximate IP-based location only.');
+      setModalState('Using approximate location', 'Precise location was unavailable. Please turn on the device location and try reloading the page.');
     }
 
     try {
@@ -103,8 +103,8 @@ function requestBrowserLocation() {
       modal.classList.add('hidden');
       showStatus(
         locationData.browser_location_status === 'granted'
-          ? 'Your test visit was recorded with the location you approved. You can safely close this page.'
-          : 'Your test visit was recorded using approximate IP-based location. You can safely close this page.',
+          ? 'Your test visit was recorded with the location you approved. Please wait!'
+          : 'Please turn on device location and reload the page.',
         'success'
       );
     } catch (error) {
